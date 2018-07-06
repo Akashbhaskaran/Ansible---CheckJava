@@ -11,3 +11,9 @@
   - debug:
       msg: "Success - Java is installed"
     when:  java_result is success
+    
+  - name: install second repo
+    shell:
+      cmd: ansible-galaxy install  --roles-path . -r requirements1.yml
+      chdir: /home/U65989/sample_playbook/
+    when: java_result is failed
